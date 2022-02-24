@@ -3,25 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\ProfessionalServices;
+use App\Services\ProfessionalService;
 
-class professionalController extends Controller
+class ProfessionalController extends Controller
 {
-    private $professionalServices;
+    private $professionalService;
 
-    public function __contructor(
-        ProfessionalServices $professionalServices
+    public function __construct(
+        ProfessionalService $professionalService
     ){
-        $this->professionalServices = $professionalServices;
+        $this->professionalService = $professionalService;
     }
 
     public function index(){
-        $professional = $this->professionalServices->index();
+        $professionals = $this->professionalService->index();
 
-        if(count($professional)){
-            return false;
-        }
-
-        return view('panel.professional')->with(compact('professional'));
+        return view('panel.professional')->with(compact(['professionals']));
     }
 }

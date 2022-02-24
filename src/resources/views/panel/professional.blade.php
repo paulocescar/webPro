@@ -14,6 +14,14 @@
                         </div>
                     @endif
                 </div>
+
+                <div class="card-body">
+                    @forelse($professionals as $professional)
+                        <p>{{$professional->name}}</p>
+                    @empty
+                        <p>Nenhum profissional cadastrado.</p>
+                    @endforelse
+                </div>
             </div>
         </div>
     </div>

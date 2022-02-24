@@ -3,19 +3,19 @@
 namespace App\Services;
 use App\Repositories\ProfessionalRepository;
 
-class ProfessionalServices extends ProfessionalServicesInterfaces
+class ProfessionalService implements ProfessionalServicesInterface
 {
     private $professionalRepository;
 
-    public function __contructor(
+    public function __construct(
         ProfessionalRepository $professionalRepository
     ){
         $this->professionalRepository = $professionalRepository;
     }
 
     public function index(){
-        $professionals = $this->professionalRepository->get();
-
+        $professionals = $this->professionalRepository->index();
+        
         return $professionals;
     }
     

@@ -2,7 +2,11 @@
 
 namespace App\Providers;
 
+use App\Services\ProfessionalServices;
+use App\Services\ProfessionalServicesInterface;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+		URL::forceScheme('https');
+
+		$this->app->bind(ProfessionalServicesInterface::class, ProfessionalService::class);
+        
+		Schema::defaultStringLength(191);
     }
 }

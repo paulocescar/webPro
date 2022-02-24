@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
-//use Your Model
+use App\Models\Professional;
 
 /**
  * Class ProfessionalRepository.
@@ -16,6 +16,13 @@ class ProfessionalRepository extends BaseRepository
      */
     public function model()
     {
-        //return YourModel::class;
+        return Professional::class;
+    }
+
+    public function index()
+    {
+        $professional = Professional::orderBy('id','DESC');
+
+        return $professional->paginate(50);
     }
 }

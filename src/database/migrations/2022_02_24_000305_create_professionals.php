@@ -16,8 +16,10 @@ class CreateProfessionals extends Migration
         Schema::create('professionals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->unsigned()->nullabe();
+            $table->unsignedBigInteger('address_id') ->unsigned() ->nullable();
             $table->string('name');
             $table->string('cpf');
+            $table->string('crm');
             $table->softDeletes();
             $table->timestamps();
 

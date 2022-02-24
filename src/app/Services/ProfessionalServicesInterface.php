@@ -3,10 +3,10 @@
 namespace App\Services;
 
 /**
- * Interface ProfessionalServicesInterfaces
+ * Interface ProfessionalServicesInterface
  * @package App\Services
  */
-interface ProfessionalServicesInterfaces
+interface ProfessionalServicesInterface
 {
     public function index();
 }

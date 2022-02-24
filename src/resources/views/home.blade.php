@@ -15,6 +15,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <br>
+                    <a href="/professionals">Profissionais</a>
                 </div>
             </div>
         </div>
